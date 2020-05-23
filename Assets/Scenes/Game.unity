@@ -318,23 +318,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 1077630908921211992, guid: fcfa680f909a01c439e21cfa8de5a227,
-        type: 3}
-      propertyPath: waveConfigs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1077630908921211992, guid: fcfa680f909a01c439e21cfa8de5a227,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 83200d740db895941a33bdd6b9ca7f2c,
-        type: 2}
-    - target: {fileID: 1077630908921211992, guid: fcfa680f909a01c439e21cfa8de5a227,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7db1e2a6b40544f40a853ec7c7052009,
-        type: 2}
     - target: {fileID: 1077630908921211993, guid: fcfa680f909a01c439e21cfa8de5a227,
         type: 3}
       propertyPath: m_LocalPosition.x
