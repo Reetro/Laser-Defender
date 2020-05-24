@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 0.3f;
     [SerializeField] GameObject laserPrefab = null;
+    [SerializeField] GameObject explosionEffect = null;
+    [SerializeField] float explosionDuration = 1f;
 
     float shotCounter = 0f;
 
@@ -23,16 +25,6 @@ public class Enemy : MonoBehaviour
     {
         CountDownAndShoot();
     }
-    private void ProcessHit(DamageDealer damageDealer)
-    {
-        health -= damageDealer.GetDamage();
-        damageDealer.Hit();
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,6 +32,27 @@ public class Enemy : MonoBehaviour
         if (!damageDealer) { return; }
 
         ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+
+        if (health <= 0)
+        {
+            KillEnemy();
+
+        }
+    }
+
+    private void KillEnemy()
+    {
+        Destroy(gameObject);
+
+        GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation) as GameObject;
+
+        Destroy(explosion, explosionDuration);
     }
 
     private void CountDownAndShoot()
