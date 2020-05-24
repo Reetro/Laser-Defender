@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 0.3f;
     [SerializeField] GameObject laserPrefab = null;
 
-    [SerializeField] float shotCounter = 0f;
+    float shotCounter = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +49,6 @@ public class Enemy : MonoBehaviour
             Fire();
 
             SetRandomShot();
-
         }
     }
 
