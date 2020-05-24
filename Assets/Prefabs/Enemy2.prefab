@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 86619869168229020}
   - component: {fileID: -1448798884558616460}
   - component: {fileID: 6950914798450744809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,6 @@ MonoBehaviour:
   maxTimeBetweenShots: 2
   laserPrefab: {fileID: 6613458013099131840, guid: 4ffb3f7c7050f0b41aa81e502e42e9cf,
     type: 3}
-  shotCounter: 0
 --- !u!58 &6950914798450744809
 CircleCollider2D:
   m_ObjectHideFlags: 0
