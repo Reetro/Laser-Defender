@@ -14,6 +14,12 @@ public class Player : MonoBehaviour
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFireRate = 0.1f;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip deathSFX = null;
+    [SerializeField] AudioClip fireSFX = null;
+    [SerializeField] [Range(0,1)] float deathSFXVolume = 0.7f;
+    [SerializeField] [Range(0, 1)] float fireSFXVolume = 0.7f;
+
     float xMin = 0;
     float xMax = 0;
     float yMin = 0;
@@ -73,19 +79,11 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
+            AudioSource.PlayClipAtPoint(fireSFX, Camera.main.transform.position, fireSFXVolume);
+
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             yield return new WaitForSeconds(projectileFireRate);
-        }
-    }
-    private void ProcessHit(DamageDealer damageDealer)
-    {
-        health -= damageDealer.GetDamage();
-        damageDealer.Hit();
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -96,5 +94,24 @@ public class Player : MonoBehaviour
 
         ProcessHit(damageDealer);
     }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+
+        KillPlayer();
+    }
+
+    private void KillPlayer()
+    {
+        if (health <= 0)
+        {
+            AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+
+            Destroy(gameObject);
+        }
+    }
+
 
 }
