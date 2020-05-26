@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour
 {
+    [SerializeField] float gameoverLoadDelay = 1f;
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
@@ -10,7 +13,7 @@ public class LoadLevel : MonoBehaviour
 
     public void LoadGameOver()
     {
-        SceneManager.LoadScene("Game Over");
+        StartCoroutine("StartGameOver");
     }
 
     public void LoadMainGame()
@@ -21,5 +24,11 @@ public class LoadLevel : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator StartGameOver()
+    {
+        yield return new WaitForSeconds(gameoverLoadDelay);
+        SceneManager.LoadScene("Game Over");
     }
 }
