@@ -98,6 +98,9 @@ MonoBehaviour:
   moveSpeed: 10
   padding: 1
   health: 200
+  explosionEffect: {fileID: 5031976923690342478, guid: 725091c2c4b2f064f82e2d6e4ae3bfbb,
+    type: 3}
+  explosionDuration: 1
   laserPrefab: {fileID: 2442343957962451286, guid: 22554bd81d9ba4547807a33773c59bea,
     type: 3}
   projectileSpeed: 10
