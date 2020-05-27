@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
     [SerializeField] float health = 100;
+    [SerializeField] int scoreAmount = 100;
 
     [Header("Projectile")]
     [SerializeField] float projectileSpeed = 10f;
@@ -58,6 +59,8 @@ public class Enemy : MonoBehaviour
     private void KillEnemy()
     {
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+
+        FindObjectOfType<GameSession>().AddToScore(scoreAmount);
 
         Destroy(gameObject);
 

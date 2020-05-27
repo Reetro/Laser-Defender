@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicPlayer : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
+    // Start is called before the first frame update
+
+    int currentScore = 0;
+
     void Awake()
     {
         int musicPlayerCount = FindObjectsOfType(GetType()).Length;
@@ -17,5 +21,20 @@ public class MusicPlayer : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public int GetCurrentScore()
+    {
+        return currentScore;
+    }
+
+    public void AddToScore(int Amount)
+    {
+        currentScore += Amount;
+    }
+
+    public void ResetScore()
+    {
+        currentScore = 0;
     }
 }
