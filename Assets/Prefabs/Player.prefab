@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 1
-  health: 200
+  health: 1000
   explosionEffect: {fileID: 5031976923690342478, guid: 725091c2c4b2f064f82e2d6e4ae3bfbb,
     type: 3}
   explosionDuration: 1
@@ -108,7 +108,7 @@ MonoBehaviour:
   deathSFX: {fileID: 8300000, guid: 28598ac14c6f4c442b6118a8fa84ba04, type: 3}
   fireSFX: {fileID: 8300000, guid: b59bec2746352a1468021f071fa42517, type: 3}
   deathSFXVolume: 0.7
-  fireSFXVolume: 0.25
+  fireSFXVolume: 0.1
 --- !u!60 &4673478319539474675
 PolygonCollider2D:
   m_ObjectHideFlags: 0

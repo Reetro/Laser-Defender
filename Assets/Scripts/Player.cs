@@ -44,6 +44,11 @@ public class Player : MonoBehaviour
         Fire();
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     private void Move()
     {
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
